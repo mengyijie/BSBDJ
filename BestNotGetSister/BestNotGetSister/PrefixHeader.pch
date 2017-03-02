@@ -1,0 +1,51 @@
+//
+//  PrefixHeader.pch
+//  Confused
+//
+//  Created by 孟义杰 on 16/2/17.
+//  Copyright © 2016年 孟义杰. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import<UIKit/UIKit.h>
+#import "NSDate+XMGExtension.h"
+#import "UIBarButtonItem+XMGExtension.h"
+#import "MYJConst.h"
+#import "UIView+XMGExtension.h"
+#import "UIImageView+XMGExtension.h"
+#import "UIImage+XMGExtension.h"
+#import "UITextField+XMGExtension.h"
+#import "NSString+XMGExtension.h"
+//日志输出
+#ifdef DEBUG  //开发阶段－DEBUG阶段：使用Log
+#define MYJLog(...) NSLog(__VA_ARGS__)
+#else //发布阶段－上线阶段：移除LOG
+#define MYJLog(...)
+#endif
+
+//方法输出
+#define MYJLogFunc MYJLog(@"%s",__func__);
+//屏幕尺寸
+#define MYJScreenH [UIScreen mainScreen].bounds.size.height
+#define MYJScreenW [UIScreen mainScreen].bounds.size.width
+
+//标签的背景颜色
+#define MYJTagBgColor MYJColor(70,142,243)
+
+//颜色
+#define MYJARGBColor(a, r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define MYJColor(r, g, b) MYJARGBColor(255, (r), (g), (b))
+#define MYJGrayColor(v) MYJColor((v), (v), (v))
+#define MYJCommonBgColor MYJGrayColor(215)
+#define MYJRandomColor MYJColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+//弱引用
+#define MYJWeakSelf __weak typeof(self) weakSelf = self;
+
+//友盟APPKEY
+#define UMAPPkey @"56e8f8e967e58e5ce60002b9"
+
+#endif /* PrefixHeader_pch */
